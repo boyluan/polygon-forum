@@ -15,7 +15,15 @@ import type { BigNumber } from "ethers";
 
 // Import our contract ABI (a json representation of our contract's public interface)
 // The hardhat compiler writes this file to artifacts during compilation
-import CommentsContract from "../artifacts/contracts/Comments.sol/Comments.json";
+// ## Steps for Vercel deployment ⬇⬇
+// 1) Create a new folder at the root directory called 'utils'
+// 2) Add a .json file to this /utils folder - to hold your smart contract's corresponding abi file
+// 3) Copy + Paste contents from the abi file, into the new .json file you've created in the /utils directory
+// 4) Import the new .json file under its new /utils directory (contd. below)
+// Into each JavaScript/Typescript file that needs to reference my smart contract (see: Line 26)
+// See: <https://github.com/vercel/next.js/discussions/34502>
+// import CommentsContract from "../artifacts/contracts/Comments.sol/Comments.json"; {{ DEFUNCT }}
+import CommentsContract from "../utils/Comments.json";
 
 export interface Comment {
     id: string;
